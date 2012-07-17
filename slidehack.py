@@ -68,7 +68,7 @@ class slidehack:
 	# 		SlideHack Core		      #
 	#---------------------------------------------#	
 	def getHtmlSource(self, url):
-		urlopen = MyOpener().open
+		urlopen 	= MyOpener().open
 		s 		= urlopen(url)
 		htmlSource 	= s.read()
 		s.close()
@@ -103,7 +103,7 @@ class slidehack:
 		img		= ""
                 UrlImage 	= ""
 		if si[2] == 0:
-			img 	= "http:"+str(si[0])+"/slide-"
+			img 		= "http:"+str(si[0])+"/slide-"
                         UrlImage	= img + "1-728.jpg"
 		elif si[2] == 1:
                         UrlImage	= str(si[0]) + "1.jpg&big=1"
@@ -144,7 +144,8 @@ class slidehack:
 			imageName	= "slide"+str(i)+".jpg"
 			os.remove(imageName)
 		print "> ok"
-			
+	
+	#For the future
 	def downloadingFile(self, url, fn):
 		print "\n==== Downloading " + fn + " ===="
 		urlretrieve = MyOpener().retrieve
