@@ -1,0 +1,47 @@
+SlideHack - Slideshare Document Downloader
+========================
+
+Copyright(c) 2012, Ronan Mouchoux (@yenos, <rmouchoux a gmail dot com>)
+
+Origin
+===============
+Some slideshare's documents are not available for downloading. I wanted to download and print one of them and 
+spend a few hours to find a way to get it.
+
+Install / Usage
+===============
+The app work with python and standart library.
+
+Usage is described when typing the -h or --help option:
+
+> ./python slidehack.py -h
+usage: slidehack.py [-h] -f FILENAME -u URL
+
+SlideHack is a tool to download (I hope) most of SlideShare documents
+unavailable to download and save it into a PDF file
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -f FILENAME, --filename FILENAME
+                        Your output pdf filename (ex : foobar.pdf)
+  -u URL, --url URL     The presentation URL (ex : http://http://www.slideshar
+                        e.net/guest66dc5f/rahulanalysisofadversarialcode)
+
+Version History
+===============
+
+Version 1 - Actual version. Will probably evolve.
+
+Feedback
+=============
+
+I'm programming just for fun, so if you notice in the SlideHack's code unoptimized
+algorithms or odds things: just tell me! 
+In the future, I would like to allow getting SlideShare's documents avalaible for downloading 
+through SlideHack. But it's clearly not a priority
+
+Licence
+=======
+This project released under the Creative Commons Attribution-Share Alike 2.0
+
+( http://creativecommons.org/licenses/by-sa/2.0/fr/ )
