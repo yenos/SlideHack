@@ -99,8 +99,9 @@ class slidehack:
 		return (pin,tot,i)
 
 	def createPDF(self, si, filename):
-		urlretrieve = MyOpener().retrieve
-                UrlImage = ""
+		urlretrieve 	= MyOpener().retrieve
+		img		= ""
+                UrlImage 	= ""
 		if si[2] == 0:
 			img 	= "http:"+str(si[0])+"/slide-"
                         UrlImage	= img + "1-728.jpg"
