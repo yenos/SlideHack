@@ -41,7 +41,8 @@ class MyOpener(FancyURLopener):
 class slidehack:
 
 	REGEX_TAB_PIN	= 	['\"pin_image_url\":\"(//images\.slidesharecdn\.com/.*)/slide-\d+-\d+\.jpg\"',
-				 '\"pin_image_url\":\"(http://m\.slidesharecdn\.com/convert\.php\?file\=.*-slide-)\d+\.jpg\"']
+				 '\"pin_image_url\":\"(http://m\.slidesharecdn\.com/convert\.php\?file\=.*-slide-)\d+\.jpg\"',
+				'\"pin_image_url\":\"(//image\.slidesharecdn\.com/.*)/slide-\d+-\d+\.jpg\"']
 	REGEX_TAB_TOT	=	['\"total_slides\":([0-9]+)']
 
 
@@ -96,13 +97,14 @@ class slidehack:
 				i	+= 1
 			p 	= re.compile(str(self.REGEX_TAB_TOT[0]))
 			tot	= p.findall(htmlSource)[0]
+		print tot
 		return (pin,tot,i)
 
 	def createPDF(self, si, filename):
 		urlretrieve 	= MyOpener().retrieve
 		img		= ""
                 UrlImage 	= ""
-		if si[2] == 0:
+		if si[2] == 0 or si[2] == 2:
 			img 		= "http:"+str(si[0])+"/slide-"
                         UrlImage	= img + "1-728.jpg"
 		elif si[2] == 1:
@@ -122,7 +124,7 @@ class slidehack:
 		print "\n==== Downloading ===="
 		print "Downloading slide number 1/"+str(n)
 		for i in range(2,n+1):
-                        if si[2] == 0:
+                        if si[2] == 0 or si[2] == 2:
                                 UrlImage	= img + str(i) + "-728.jpg"
                                 imageName	= "slide"+str(i)+".jpg"
                                 print "Downloading slide number " + str(i) + "/" + str(n)
@@ -135,7 +137,7 @@ class slidehack:
 		print "\n==== Creating " + filename + " ===="
 		try:
 			doc.build(parts)
-		except reportlab.platypus.doctemplate.LayoutError:
+		except :
 			doc = SimpleDocTemplate(filename, pagesize=(1024.0,1024.0))
 			doc.build(parts)
 		print "> ok"
